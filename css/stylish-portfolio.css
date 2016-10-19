@@ -705,8 +705,10 @@ article {
 }
 
 .table-container table {
-    font-size: 15px;
+    font-size: 17px;
 }
 
-
+.table-container tr td:first-child {
+    text-align: center;
+}
 
