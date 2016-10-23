@@ -723,3 +723,7 @@ article {
     text-align: center;
 }
 
+.table-note {
+    padding: 1em;
+    font-size: 17px;
+}
