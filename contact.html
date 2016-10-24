@@ -74,7 +74,6 @@
                             <span style="font-size:16px;">聯絡我們</span>
                         </a>
                     </li>
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -83,64 +82,36 @@
     </nav>
     <aside class="small-cover">
         <div class="text-vertical-center">
-            <h1>門診時間</h1>
+            <h1>聯絡我們</h1>
         </div>
     </aside>
 
-<div class="table-container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th></th>
-        <th>星期一</th>
-        <th>星期二</th>
-        <th>星期三</th>
-        <th>星期四</th>
-        <th>星期五</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>下午<br>
-            14:00-17:30
-        </td>
-        <td>
-            許崇智<br>
-            胡洪琪
-        </td>
-        <td>許崇智</td>
-        <td>許崇智</td>
-        <td>
-            許崇智<br>
-            胡洪琪
-        </td>
-        <td>許崇智</td>
-      </tr>
-      <tr>
-        <td>晚上<br>
-            18:30-21:00
-        </td>
-        <td>
-            許崇智<br>
-            胡洪琪
-        </td>
-        <td>許崇智</td>
-        <td>許崇智</td>
-        <td>
-            許崇智<br>
-            胡洪琪
-        </td>
-        <td>許崇智</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="table-note">
-      <ul class="fa-ul">
-          <li><i class="fa-li fa fa-check-square"></i>診所採取預約制，前來看診前請先來電預約唷！</li>
-      </ul>
-  </div>
-</div>
 
+    <!-- Map -->
+    <section id="contact" class="contact-map">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=台灣台北市士林區中山北路五段親親牙醫診所&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+        <br />
+        </iframe>
+    </section>
+
+    <div class="contact-container">
+       <p>
+           <h4> 預約資訊</h4>
+           <ul class="fa-ul">
+              <li><i class="fa-li fa fa-check-square"></i>預約專線：02)2835-7730，(02)2832-5056</li>
+              <li><i class="fa-li fa fa-check-square"></i>地址：台北市士林區中山北路五段622號2樓</li>
+           </ul>
+       </p>
+       <p>
+           <h4> 交通資訊</h4>
+           <ul class="fa-ul">
+              <li><i class="fa-li fa fa-check-square"></i>搭乘捷運：</li>
+              <li><i class="fa-li fa fa-check-square"></i>搭乘公車：</li>
+           </ul>
+       </p>
+    </div>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
@@ -227,6 +198,26 @@
             }
         }
     });
+    // Disable Google Maps scrolling
+    // See http://stackoverflow.com/a/25904582/1607849
+    // Disable scroll zooming and bind back the click event
+    var onMapMouseleaveHandler = function(event) {
+        var that = $(this);
+        that.on('click', onMapClickHandler);
+        that.off('mouseleave', onMapMouseleaveHandler);
+        that.find('iframe').css("pointer-events", "none");
+    }
+    var onMapClickHandler = function(event) {
+            var that = $(this);
+            // Disable the click handler until the user leaves the map area
+            that.off('click', onMapClickHandler);
+            // Enable scrolling zoom
+            that.find('iframe').css("pointer-events", "auto");
+            // Handle the mouse leave event
+            that.on('mouseleave', onMapMouseleaveHandler);
+        }
+        // Enable map zooming with mouse scroll when the user clicks the map
+    $('.map').on('click', onMapClickHandler);
     </script>
 
 </body>
