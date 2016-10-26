@@ -732,7 +732,8 @@ article {
     height: 400px;
     width: 70%;
     margin: auto;
-    padding-top: 5em;
+    margin-top: 5em;
+    background: LightGrey;
 }
 
 .contact-container {
